@@ -36,6 +36,8 @@ class MainFrame(Frame):
         menubar.add_cascade(label="Informacion", underline=0, menu=informacion)
         menubar.add_cascade(label="Contacto", underline=0)
 
+
+        # ********** SECCION DE REDES SOCIALES Y LOGO ****************
         self.facebook = PhotoImage(file='resources/facebook.png')
         self.instagram = PhotoImage(file='resources/instagram.png')
         self.twitter = PhotoImage(file="resources/twitter.png")
@@ -45,6 +47,19 @@ class MainFrame(Frame):
         Label(self.master, image=self.instagram).place(x=90, y=550)
         Label(self.master, image=self.twitter).place(x=150, y=550)
         Label(self.master, image=self.logo).place(x=560, y=550)
+
+
+        # *********** SECCION DE BOTONES DE LOS DIFERENTES MODULOS ************
+        self.paises = PhotoImage(file="resources/paises.png")
+        self.ciudades = PhotoImage(file="resources/ciudades.png")
+        self.clientes = PhotoImage(file="resources/cliente.png")
+        Button(self.master, image=self.paises, command=self.printHola).place(x=30,y=100)
+        Button(self.master, image=self.ciudades).place(x=188,y=100)
+        Button(self.master, image=self.clientes).place(x=346,y=100)
+
+    def printHola(self):
+        print("Presionaste el boton de Paises")
+
 
 def main():
 
