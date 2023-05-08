@@ -50,18 +50,18 @@ def vMantenimiento(padre):
 
 def vReportes(padre):
     reportes = Menu(padre)
-    opcion1 = Menu(reportes) # Definimos opcion 1
-    opcion1.add_command(label="Opcion1")
-    opcion1.add_command(label="Opcion2")
-    opcion1.add_command(label="Opcion3")
+    # opcion1 = Menu(reportes) # Definimos opcion 1
+    # opcion1.add_command(label="Reportes")
+    # opcion1.add_command(label="Opcion2")
+    # opcion1.add_command(label="Opcion3")
 
-    opcion2 = Menu(reportes) # Defininimos opcion 2
-    opcion2.add_command(label="Opcion1")
-    opcion2.add_command(label="Opcion2")
-    opcion2.add_command(label="Opcion3")
+    # opcion2 = Menu(reportes) # Defininimos opcion 2
+    # opcion2.add_command(label="Opcion1")
+    # opcion2.add_command(label="Opcion2")
+    # opcion2.add_command(label="Opcion3")
 
-    reportes.add_cascade(label="Opcion 1", menu=opcion1, underline=0)
-    reportes.add_cascade(label="Opcion 2", menu=opcion2, underline=0)
+    reportes.add_command(label="Reportes Solicitados", underline=0)
+    # reportes.add_cascade(label="Opcion 2", menu=opcion2, underline=0)
 
     return reportes
 
