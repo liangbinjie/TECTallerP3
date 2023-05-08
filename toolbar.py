@@ -78,7 +78,7 @@ def vFacturacion(padre):
     opcion2.add_command(label="Opcion2")
     opcion2.add_command(label="Opcion3")
 
-    facturacion.add_cascade(label="Saldos", menu=opcion1, underline=0)
+    facturacion.add_cascade(label="Saldos", menu=opcion2, underline=0)
     facturacion.add_cascade(label="Descuentos", menu=opcion2, underline=0)
     facturacion.add_cascade(label="Facturacion", menu=opcion2, underline=0)
 

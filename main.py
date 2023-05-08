@@ -1,9 +1,8 @@
 from tkinter import *
 from toolbar import *
 
-# https://zetcode.com/tkinter/menustoolbars/
+
 class App(Frame):
-    counter = 0
     def __init__(self):
         super().__init__()
 
@@ -13,11 +12,9 @@ class App(Frame):
     def ventanaPrincipal(self):
 
         self.master.title("TecnoPETS - Tu Veterinaria de confianza")
-
         menubar = Menu(self.master)
         self.master.config(menu=menubar)
 
-        
         # definimos la opcion de mantenimiento
         mantenimiento = vMantenimiento(menubar) # la llamamos de la funcion de mantenimiento
 
@@ -188,7 +185,10 @@ class App(Frame):
 
 
     def formulario_contacto(self):
-        self.counter += 1
+        """
+        Popup para el formulario de contacto
+        Tiene los Entries de nombre, correo, telefono y comentarios
+        """
         t = Toplevel(self)
         t.geometry("300x150")
         t.title("Formulario de Contacto")
@@ -205,6 +205,7 @@ class App(Frame):
 def main():
 
     root = Tk()
+    root.resizable(False, False)
     root.geometry("880x620")
     app = App()
     root.mainloop()
