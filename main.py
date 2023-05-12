@@ -82,16 +82,16 @@ class App(Frame):
     def popupLugares(self, btn):
         self.popup = Menu(self.master, tearoff=0)
         self.popupPaises = Menu(self.popup)
-        self.popupPaises.add_command(label="Insercion")
-        self.popupPaises.add_command(label="Consultar")
-        self.popupPaises.add_command(label="Eliminar")
-        self.popupPaises.add_command(label="Modificar")
+        self.popupPaises.add_command(label="Insercion",command= self.formulario_insercionpais)
+        self.popupPaises.add_command(label="Consultar",command= self.formulario_consultapais)
+        self.popupPaises.add_command(label="Eliminar",command = self.formulario_eliminacionpais)
+        self.popupPaises.add_command(label="Modificar",command = self.formulario_modificacionpais)
         self.popup.add_cascade(label="Paises", menu=self.popupPaises)
         self.popupCiudades = Menu(self.popup)
-        self.popupCiudades.add_command(label="Insercion")
-        self.popupCiudades.add_command(label="Consultar")
-        self.popupCiudades.add_command(label="Eliminar")
-        self.popupCiudades.add_command(label="Modificar")
+        self.popupCiudades.add_command(label="Insercion",command = self.formulario_insercionciudad)
+        self.popupCiudades.add_command(label="Consultar",command = self.formulario_consultaCiudad)
+        self.popupCiudades.add_command(label="Eliminar",command = self.formulario_eliminacionciudad)
+        self.popupCiudades.add_command(label="Modificar",command = self.formulario_modificacionciudad)
         self.popup.add_cascade(label="Ciudades", menu=self.popupCiudades)
 
         try:         
@@ -104,16 +104,16 @@ class App(Frame):
     def popupClinica(self, btn):
         self.popup = Menu(self.master, tearoff=0)
         self.popupTratamientos = Menu(self.popup)
-        self.popupTratamientos.add_command(label="Insercion")
-        self.popupTratamientos.add_command(label="Consultar")
-        self.popupTratamientos.add_command(label="Eliminar")
-        self.popupTratamientos.add_command(label="Modificar")
+        self.popupTratamientos.add_command(label="Insercion",command = self.formulario_inserciontratamiento)
+        self.popupTratamientos.add_command(label="Consultar",command = self.formulario_consultaTratamiento)
+        self.popupTratamientos.add_command(label="Eliminar",command = self.formulario_eliminacionTratamiento)
+        self.popupTratamientos.add_command(label="Modificar",command = self.formulario_modificaciontratamiento)
         self.popup.add_cascade(label="Tratamientos", menu=self.popupTratamientos)
         self.popupMedicamentos = Menu(self.popup)
-        self.popupMedicamentos.add_command(label="Insercion")
-        self.popupMedicamentos.add_command(label="Consultar")
-        self.popupMedicamentos.add_command(label="Eliminar")
-        self.popupMedicamentos.add_command(label="Modificar")
+        self.popupMedicamentos.add_command(label="Insercion",command = self.formulario_insercionmedicacion)
+        self.popupMedicamentos.add_command(label="Consultar",command = self.formulario_consultaMedicacion)
+        self.popupMedicamentos.add_command(label="Eliminar",command = self.formulario_eliminacionMedicacion)
+        self.popupMedicamentos.add_command(label="Modificar", command = self.formulario_modificacionMedicacion)
         self.popup.add_cascade(label="Medicamentos", menu=self.popupMedicamentos)
 
         try:         
@@ -126,24 +126,24 @@ class App(Frame):
     def popupClientes(self, btn):
         self.popup = Menu(self.master, tearoff=0)
         self.popupCliente = Menu(self.popup)
-        self.popupCliente.add_command(label="Insercion")
-        self.popupCliente.add_command(label="Consultar")
-        self.popupCliente.add_command(label="Eliminar")
-        self.popupCliente.add_command(label="Modificar")
+        self.popupCliente.add_command(label="Insercion",command = self.formulario_insercioncliente)
+        self.popupCliente.add_command(label="Consultar",command = self.formulario_consultaCliente)
+        self.popupCliente.add_command(label="Eliminar",command = self.formulario_eliminacionCliente)
+        self.popupCliente.add_command(label="Modificar",command = self.formulario_modificacionCliente)
         self.popup.add_cascade(label="Clientes", menu=self.popupCliente)
 
         self.popupMascotas = Menu(self.popup)
-        self.popupMascotas.add_command(label="Insercion")
-        self.popupMascotas.add_command(label="Consultar")
-        self.popupMascotas.add_command(label="Eliminar")
-        self.popupMascotas.add_command(label="Modificar")
+        self.popupMascotas.add_command(label="Insercion",command = self.formulario_insercionmascota)
+        self.popupMascotas.add_command(label="Consultar",command = self.formulario_consultaMascota)
+        self.popupMascotas.add_command(label="Eliminar",command = self.formulario_eliminacionMascota)
+        self.popupMascotas.add_command(label="Modificar",command = self.formulario_modificacionmascota)
         self.popup.add_cascade(label="Mascotas", menu=self.popupMascotas)
 
         self.popupVisitas = Menu(self.popup)
-        self.popupVisitas.add_command(label="Insercion")
-        self.popupVisitas.add_command(label="Consultar")
-        self.popupVisitas.add_command(label="Eliminar")
-        self.popupVisitas.add_command(label="Modificar")
+        self.popupVisitas.add_command(label="Insercion",command = self.formulario_insercionvisita)
+        self.popupVisitas.add_command(label="Consultar",command = self.formulario_consultaVisita)
+        self.popupVisitas.add_command(label="Eliminar") #No estoy seguro pero no decia que sucedia si se elimina visita en las especificaciones.
+        self.popupVisitas.add_command(label="Modificar", command = self.formulario_modificacionvisita)
         self.popup.add_cascade(label="Visitas", menu=self.popupVisitas)
 
         try:         
@@ -201,6 +201,407 @@ class App(Frame):
         telefono = Entry(t).grid(row = 2,column = 1)
         comentarios = Entry(t).grid(row = 3,column = 1)
         Button(t ,text="Guardar").grid(row=4,column=1)
+
+    def formulario_insercionpais(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
+        Label(t ,text = "Nombre").grid(row=1,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        nombre = Entry(t).grid(row = 1,column = 1)
+        Button(t , text="Guardar").grid(row=2,column=1)
+
+    def formulario_insercionciudad(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de ciudad").grid(row=1,column =0)
+        Label(t ,text = "Nombre").grid(row=2,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 1,column = 1)
+        nombre = Entry(t).grid(row = 2,column = 1)
+        
+        Button(t , text="Guardar").grid(row=3,column=1)
+
+    def formulario_insercioncliente(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de ciudad").grid(row=1,column =0)
+        Label(t ,text = "Codigo de cliente").grid(row=2,column = 0)
+        Label(t ,text = "Direccion").grid(row=3,column = 0)
+        Label(t ,text = "Telefono").grid(row=4,column = 0)
+        Label(t ,text = "Fecha de ultima visita").grid(row=5,column = 0)
+        Label(t ,text = "Nombre").grid(row=6,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 1,column = 1)
+        Codigo_de_Cliente = Entry(t).grid(row = 2,column = 1)
+        Direccion = Entry(t).grid(row = 3,column = 1)
+        Telefono = Entry(t).grid(row = 4,column = 1)
+        Fecha_de_ultima_visita = Entry(t).grid(row = 5,column = 1)
+        nombre = Entry(t).grid(row = 6,column = 1)
+        Button(t , text="Guardar").grid(row=7,column=1)
+
+    def formulario_insercionmascota(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de cliente").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de mascota").grid(row=1,column = 0)
+        
+        Label(t ,text = "Tipo de mascota").grid(row=2,column = 0)
+        Label(t ,text = "Raza").grid(row=3,column = 0)
+        Label(t ,text = "Fecha de Nacimiento").grid(row=4,column = 0)
+        Label(t ,text = "Sexo").grid(row=5,column = 0)
+        Label(t ,text = "Color").grid(row=6,column = 0)
+        Label(t ,text = "Castrado").grid(row=7,column = 0)
+        Label(t ,text = "Fecha de ultima visita").grid(row=8,column = 0)
+
+
+        Label(t ,text = "Nombre").grid(row=9,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Mascota = Entry(t).grid(row = 1,column = 1)
+
+        TipoDeMascota = Entry(t).grid(row = 2,column = 1)
+        Raza = Entry(t).grid(row = 3,column = 1)
+        FechaNacimiento = Entry(t).grid(row = 4,column = 1)
+        Sexo = Entry(t).grid(row = 5,column = 1)
+        Color = Entry(t).grid(row = 6,column = 1)
+        Castrado = Entry(t).grid(row = 7,column = 1)
+        FechaUltimaVisita = Entry(t).grid(row = 8,column = 1)
+
+        nombre = Entry(t).grid(row = 9,column = 1)
+        Button(t , text="Guardar").grid(row=10,column=1)
+
+    def formulario_insercionvisita(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de visita").grid(row=0,column = 0)
+        
+        Label(t ,text = "Codigo de Animal").grid(row=1,column = 0)
+        Label(t ,text = "Fecha de ultima visita").grid(row=2,column = 0)
+        Label(t ,text = "Total Factura").grid(row=3,column = 0)
+        Label(t ,text = "Forma de Pago").grid(row=4,column = 0)
+
+        CodigoDeVisita = Entry(t).grid(row = 0, column = 1)
+        CodigoDeAnimal = Entry(t).grid(row = 1,column = 1)
+
+        FechaUltimaVisita = Entry(t).grid(row = 2,column = 1)
+        TotalFactura = Entry(t).grid(row = 3,column = 1)
+        FormaDePago = Entry(t).grid(row = 4,column = 1)
+
+
+        Button(t , text="Guardar").grid(row=5,column=1)
+
+    def formulario_inserciontratamiento(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de Tratamiento").grid(row=0,column = 0)
+        Label(t ,text = "Nombre").grid(row=1,column = 0)
+        Label(t ,text = "Precio Unitario").grid(row=2,column = 0)
+        Label(t ,text = "Cantidad").grid(row=3,column = 0)
+        CodigoDeTratamiento = Entry(t).grid(row = 0, column = 1)
+        nombre = Entry(t).grid(row = 1,column = 1)
+        PrecioUnitario = Entry(t).grid(row = 2,column = 1)
+        Cantidad = Entry(t).grid(row = 3,column = 1)
+
+
+
+
+        Button(t , text="Guardar").grid(row=4,column=1)
+
+
+
+    def formulario_insercionmedicacion(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo del Animal").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Medicacion").grid(row=1,column = 0)
+        Label(t ,text = "Fecha de Ultima Visita").grid(row=2, column = 0)
+        Label(t ,text = "Lista de Medicamentos").grid(row=3, column = 0)
+        Label(t ,text = "Costo unitario").grid(row=4, column = 0)
+        Label(t ,text = "Cantidad").grid(row=5, column = 0)
+        Label(t ,text = "Costo total").grid(row=6, column = 0)
+
+        Codigo_de_Animal = Entry(t).grid(row = 0, column = 1)
+        codigoDeMedicacion = Entry(t).grid(row = 1,column = 1)
+        FechaDeUltimaVisita = Entry(t).grid(row = 2,column = 1)
+        ListaDeMedicamentos = Entry(t).grid(row = 3,column = 1)
+        CostoUnitario = Entry(t).grid(row = 4,column = 1)
+        Cantidad = Entry(t).grid(row = 5,column = 1)
+        CostoTotal = Entry(t).grid(row = 6,column = 1)
+
+
+        Button(t , text="Guardar").grid(row=7,column=1)
+
+    def formulario_consultapais(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        Button(t , text="Consultar").grid(row=1,column=1)
+
+    def formulario_consultaCiudad(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Ciudad").grid(row=1,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 1, column = 1)
+        Button(t , text="Consultar").grid(row=2,column=1)
+
+    def formulario_consultaCliente(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Ciudad").grid(row=1,column = 0)
+        Label(t ,text = "Codigo de Cliente").grid(row=2,column = 0)
+        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 1, column = 1)
+        Codigo_de_cliente = Entry(t).grid(row = 2, column = 1)
+        Button(t , text="Consultar").grid(row=3,column=1)
+
+    def formulario_consultaMascota(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Cliente").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Mascota").grid(row=1,column = 0)
+        Codigo_de_Cliente = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Mascota = Entry(t).grid(row = 1, column = 1)
+        Button(t , text="Consultar").grid(row=2,column=1)
+
+    def formulario_consultaVisita(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Mascota").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Visita").grid(row=1,column = 0)
+        Codigo_de_Mascota = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Visita = Entry(t).grid(row = 1, column = 1)
+        Button(t , text="Consultar").grid(row=2,column=1)
+
+    def formulario_consultaTratamiento(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Tratamiento").grid(row=0,column = 0)
+        Codigo_de_tratamiento = Entry(t).grid(row = 0, column = 1)
+        Button(t , text="Consultar").grid(row=2,column=1)
+
+    def formulario_consultaMedicacion(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de consulta")
+        Label(t ,text = "Codigo de Mascota").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Medicacion").grid(row = 1,column = 0)
+        Codigo_de_Mascota = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Medicacion = Entry(t).grid(row = 1, column = 1)
+        Button(t , text="Consultar").grid(row=2,column=1)
+
+
+    def formulario_eliminacionpais(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de eliminacion")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        
+        Button(t , text="Eliminar").grid(row=1,column=1)
+
+    def formulario_eliminacionciudad(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de eliminacion")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Ciudad a eliminar").grid(row=1,column = 0)
+        Label(t ,text = "Codigo de Pais nuevo").grid(row=2,column = 0)
+        Label(t ,text = "Codigo de Ciudad nuevo").grid(row=3,column = 0)
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudadeliminar = Entry(t).grid(row = 1, column = 1)
+        Codigo_de_Paisnuevo = Entry(t).grid(row = 2, column = 1)
+        Codigo_de_Ciudadnuevo = Entry(t).grid(row = 3, column = 1)
+        
+        Button(t , text="Eliminar").grid(row=4,column=1)
+    
+    def formulario_eliminacionCliente(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de eliminacion")
+        Label(t ,text = "Codigo de Cliente").grid(row=0,column = 0)
+        Codigo_de_Cliente = Entry(t).grid(row = 0, column = 1)
+        
+        Button(t , text="Eliminar").grid(row=1,column=1)    
+
+
+    def formulario_eliminacionMascota(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de eliminacion")
+        Label(t ,text = "Codigo de Mascota").grid(row=0,column = 0)
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        
+        Button(t , text="Eliminar").grid(row=1,column=1)
+
+    def formulario_eliminacionTratamiento(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de eliminacion")
+        Label(t ,text = "Codigo de Tratamiento").grid(row=0,column = 0)
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        
+        Button(t , text="Eliminar").grid(row=1,column=1)
+
+    def formulario_eliminacionMedicacion(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de eliminacion")
+        Label(t ,text = "Codigo de Medicacion").grid(row=0,column = 0)
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        
+        Button(t , text="Eliminar").grid(row=1,column=1)
+
+    def formulario_modificacionpais(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Label(t ,text = "Nombre nuevo").grid(row=1,column = 0)
+
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        NombreNuevo = Entry(t).grid(row = 1, column = 1)
+        
+        Button(t , text="Modificar").grid(row=1,column=1)
+
+    def formulario_modificacionciudad(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Ciudad").grid(row=1,column = 0)
+        Label(t ,text = "Nombre nuevo").grid(row=2,column = 0)
+
+        Codigo_de_Pais = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 1, column = 1)
+        NombreNuevo = Entry(t).grid(row = 2, column = 1)
+        
+        Button(t , text="Modificar").grid(row=3,column=1)
+
+    def formulario_modificacionCliente(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Cliente").grid(row=0,column = 0)
+        Label(t ,text = "Nombre nuevo").grid(row=1,column = 0)
+        Label(t ,text = "Direccion nueva").grid(row=2,column = 0)
+        Label(t ,text = "Codigo de pais nuevo").grid(row=3,column = 0)
+        Label(t ,text = "Codigo de ciudad nueva").grid(row=4,column = 0)
+        Label(t ,text = "Telefono nuevo").grid(row=5,column = 0)
+
+        Codigo_de_Cliente = Entry(t).grid(row = 0, column = 1)
+        NombreNuevo = Entry(t).grid(row = 1, column = 1)
+        Direccion_nueva = Entry(t).grid(row = 2, column = 1)
+        Codigo_de_Pais = Entry(t).grid(row = 3, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 4, column = 1)
+        TelefonoNuevo = Entry(t).grid(row = 5, column = 1)
+        
+        
+        Button(t , text="Modificar").grid(row=6,column=1)
+
+    def formulario_modificacionmascota(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Cliente").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Mascota").grid(row=1,column = 0)
+        Label(t ,text = "Nombre nuevo de Mascota").grid(row=2,column = 0)
+        Label(t ,text = "Castrado").grid(row=3,column = 0)
+
+        Codigo_de_Cliente = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Ciudad = Entry(t).grid(row = 1, column = 1)
+        NombreNuevo = Entry(t).grid(row = 2, column = 1)
+        Castrado = Entry(t).grid(row = 3, column = 1)
+        
+        Button(t , text="Modificar").grid(row=4,column=1)
+
+
+    def formulario_modificacionvisita(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Visita").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Mascota").grid(row=1,column = 0)
+        Label(t ,text = "Forma de Pago nueva").grid(row=2,column = 0)
+     
+
+        Codigo_de_Visita = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Mascota = Entry(t).grid(row = 1, column = 1)
+        Forma_de_Pago = Entry(t).grid(row = 2, column = 1)
+        
+        Button(t , text="Modificar").grid(row=3,column=1)
+    
+
+    def formulario_modificacionvisita(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Visita").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Mascota").grid(row=1,column = 0)
+        Label(t ,text = "Forma de Pago nueva").grid(row=2,column = 0)
+     
+
+        Codigo_de_Visita = Entry(t).grid(row = 0, column = 1)
+        Codigo_de_Mascota = Entry(t).grid(row = 1, column = 1)
+        Forma_de_Pago = Entry(t).grid(row = 2, column = 1)
+        
+        Button(t , text="Modificar").grid(row=3,column=1)
+
+    def formulario_modificaciontratamiento(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de tratamiento").grid(row=0,column = 0)
+        Label(t ,text = "Precio unitario nuevo").grid(row=1,column = 0)
+
+     
+
+        Codigo_de_Visita = Entry(t).grid(row = 0, column = 1)
+        PrecioUnitario = Entry(t).grid(row = 1, column = 1)
+        
+        
+        Button(t , text="Modificar").grid(row=2,column=1)
+
+    def formulario_modificacionMedicacion(self):
+        t = Toplevel(self)
+        t.geometry("300x150")
+        t.title("Formulario de modificacion")
+        Label(t ,text = "Codigo de Medicacion").grid(row=0,column = 0)
+        Label(t ,text = "Codigo de Animal").grid(row=1,column = 0)
+        Label(t ,text = "Cantidad nueva de medicamento").grid(row=2,column = 0)
+        Label(t ,text = "Precio nuevo de medicamento").grid(row=3,column = 0)
+        Label(t ,text = "Precio total nuevo de medicamento").grid(row=4,column = 0)
+
+
+     
+
+        Codigo_de_Visita = Entry(t).grid(row = 0, column = 1)
+        PrecioUnitario = Entry(t).grid(row = 1, column = 1)
+        Cantidad = Entry(t).grid(row = 2, column = 1)
+        Precio = Entry(t).grid(row = 3, column = 1)
+        PrecioTotal = Entry(t).grid(row = 4, column = 1)
+        
+        Button(t , text="Modificar").grid(row=5,column=1)
+
+
 
 def main():
 
