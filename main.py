@@ -1,7 +1,7 @@
 from tkinter import *
 from toolbar import *
 from variables import *
-from prueba import *
+from contacto import *
 from tkinter import messagebox
 
 class App(Frame):
