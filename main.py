@@ -1,6 +1,8 @@
 from tkinter import *
 from toolbar import *
-
+from variables import *
+from prueba import *
+from tkinter import messagebox
 
 class App(Frame):
     def __init__(self):
@@ -196,12 +198,16 @@ class App(Frame):
         Label(t ,text = "Correo").grid(row = 1,column = 0)
         Label(t ,text = "Telefono").grid(row = 2,column = 0)
         Label(t ,text = "Comentarios", height=2).grid(row = 3,column = 0)
-        nombre = Entry(t).grid(row = 0,column = 1)
-        correo = Entry(t).grid(row = 1,column = 1)
-        telefono = Entry(t).grid(row = 2,column = 1)
-        comentarios = Entry(t).grid(row = 3,column = 1)
-        Button(t ,text="Guardar").grid(row=4,column=1)
-
+        nombre = Entry(t)
+        nombre.grid(row = 0,column = 1)
+        correo = Entry(t)
+        correo.grid(row = 1,column = 1)
+        telefono = Entry(t)
+        telefono.grid(row = 2,column = 1)
+        comentarios = Entry(t)
+        comentarios.grid(row = 3,column = 1)
+        Button(t ,text="Guardar", command= lambda: guardarContacto(nombre.get(), correo.get(), telefono.get(), comentarios.get())).grid(row=4,column=1)
+    
 def main():
 
     root = Tk()
