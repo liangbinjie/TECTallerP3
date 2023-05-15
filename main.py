@@ -1,6 +1,6 @@
 from tkinter import *
 from toolbar import *
-
+from forms_consulta import *
 
 class App(Frame):
     def __init__(self):
@@ -33,7 +33,7 @@ class App(Frame):
         informacion.add_cascade(label="- Aaron Moncada")
 
 
-    # ********** SECCION DE LAS DIFERENTES OPCIONES DEL MENU BAR ***************
+    # ********** SECCION DE LAS DIFERENTES OPCIONES DEL TOOLBAR ***************
         menubar.add_cascade(label="Mantenimiento", underline=0, menu=mantenimiento)
         menubar.add_cascade(label="Reportes", underline=0, menu=reportes)
         menubar.add_cascade(label="Facturacion", underline=0, menu=facturacion)
@@ -82,14 +82,14 @@ class App(Frame):
     def popupLugares(self, btn):
         self.popup = Menu(self.master, tearoff=0)
         self.popupPaises = Menu(self.popup)
-        self.popupPaises.add_command(label="Insercion",command= self.formulario_insercionpais)
-        self.popupPaises.add_command(label="Consultar",command= self.formulario_consultapais)
+        self.popupPaises.add_command(label="Insercion",command= formulario_insercionpais)
+        self.popupPaises.add_command(label="Consultar",command= formulario_consultapais)
         self.popupPaises.add_command(label="Eliminar",command = self.formulario_eliminacionpais)
         self.popupPaises.add_command(label="Modificar",command = self.formulario_modificacionpais)
         self.popup.add_cascade(label="Paises", menu=self.popupPaises)
         self.popupCiudades = Menu(self.popup)
-        self.popupCiudades.add_command(label="Insercion",command = self.formulario_insercionciudad)
-        self.popupCiudades.add_command(label="Consultar",command = self.formulario_consultaCiudad)
+        self.popupCiudades.add_command(label="Insercion",command = formulario_insercionciudad)
+        self.popupCiudades.add_command(label="Consultar",command = formulario_consultaCiudad)
         self.popupCiudades.add_command(label="Eliminar",command = self.formulario_eliminacionciudad)
         self.popupCiudades.add_command(label="Modificar",command = self.formulario_modificacionciudad)
         self.popup.add_cascade(label="Ciudades", menu=self.popupCiudades)
@@ -126,15 +126,15 @@ class App(Frame):
     def popupClientes(self, btn):
         self.popup = Menu(self.master, tearoff=0)
         self.popupCliente = Menu(self.popup)
-        self.popupCliente.add_command(label="Insercion",command = self.formulario_insercioncliente)
-        self.popupCliente.add_command(label="Consultar",command = self.formulario_consultaCliente)
+        self.popupCliente.add_command(label="Insercion",command = formulario_insercioncliente)
+        self.popupCliente.add_command(label="Consultar",command = formulario_consultaCliente)
         self.popupCliente.add_command(label="Eliminar",command = self.formulario_eliminacionCliente)
         self.popupCliente.add_command(label="Modificar",command = self.formulario_modificacionCliente)
         self.popup.add_cascade(label="Clientes", menu=self.popupCliente)
 
         self.popupMascotas = Menu(self.popup)
-        self.popupMascotas.add_command(label="Insercion",command = self.formulario_insercionmascota)
-        self.popupMascotas.add_command(label="Consultar",command = self.formulario_consultaMascota)
+        self.popupMascotas.add_command(label="Insercion",command = formulario_insercionmascota)
+        self.popupMascotas.add_command(label="Consultar",command = formulario_consultaMascota)
         self.popupMascotas.add_command(label="Eliminar",command = self.formulario_eliminacionMascota)
         self.popupMascotas.add_command(label="Modificar",command = self.formulario_modificacionmascota)
         self.popup.add_cascade(label="Mascotas", menu=self.popupMascotas)
@@ -208,110 +208,6 @@ class App(Frame):
         comentarios.grid(row = 3,column = 1)
         from datos import guardarContacto
         Button(t ,text="Guardar", command= lambda: guardarContacto(nombre.get(), correo.get(), telefono.get(), comentarios.get())).grid(row=4,column=1)
-    
-
-# ******** SECCION FORMULARIO INSERCION ********
-    def formulario_insercionpais(self):
-        t = Toplevel(self)
-        t.geometry("300x150")
-        t.title("Formulario de insercion")
-        Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
-        Label(t ,text = "Nombre").grid(row=1,column = 0)
-        idPais = Entry(t)
-        idPais.grid(row = 0, column = 1)
-        nombre = Entry(t)
-        nombre.grid(row = 1,column = 1)
-        from pais import addPais
-        Button(t , text="Guardar", command=lambda: addPais(idPais.get(), nombre.get()) ).grid(row=2,column=1)
-
-    def formulario_insercionciudad(self):
-        t = Toplevel(self)
-        t.geometry("300x250")
-        t.title("Formulario de insercion")
-        Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
-        Label(t ,text = "Codigo de ciudad").grid(row=1,column =0)
-        Label(t ,text = "Nombre").grid(row=2,column = 0)
-        codPais = Entry(t)
-        codPais.grid(row = 0, column = 1)
-        codCiudad = Entry(t)
-        codCiudad.grid(row = 1,column = 1)
-        nombre = Entry(t)
-        nombre.grid(row = 2,column = 1)
-        from ciudad import addCiudad
-        Button(t , text="Guardar", command=lambda: addCiudad(codPais.get(), codCiudad.get(), nombre.get())).grid(row=3,column=1)
-
-    def formulario_insercioncliente(self):
-        t = Toplevel(self)
-        t.geometry("300x300")
-        t.title("Formulario de insercion")
-        Label(t ,text = "ID").grid(row=0,column = 0)
-        Label(t, text= "Nombre").grid(row=1, column=0) 
-        Label(t, text= "Direccion").grid(row=2, column=0) 
-        Label(t, text= "ID Pais").grid(row=3, column=0) 
-        Label(t, text= "ID Ciudad").grid(row=4, column=0)
-        Label(t, text= "Telefono").grid(row=5, column=0)
-        Label(t, text= "Fecha (DD-MM-YY)").grid(row=6, column=0)
-        Label(t, text= "Descuento").grid(row=7, column=0)
-        Label(t, text= "Saldo").grid(row=8, column=0)
-        idCliente = Entry(t)
-        idCliente.grid(row=0, column=1)
-        nombre = Entry(t)
-        nombre.grid(row=1, column=1)
-        direccion = Entry(t)
-        direccion.grid(row=2, column=1)
-        pais = Entry(t)
-        pais.grid(row=3, column=1)
-        ciudad = Entry(t)
-        ciudad.grid(row=4, column=1)
-        telefono = Entry(t)
-        telefono.grid(row=5, column=1)
-        fecha = Entry(t)
-        fecha.grid(row=6, column=1)
-        descuento = Entry(t)
-        descuento.grid(row=7, column=1)
-        saldo = Entry(t)
-        saldo.grid(row=8, column=1)
-
-        from cliente import addCliente
-        Button(t , text="Guardar", command=lambda: addCliente(idCliente.get(), nombre.get(), direccion.get(), pais.get(), ciudad.get(), telefono.get(), fecha.get(), descuento.get(), saldo.get())).grid(row=9,column=1)
-
-    def formulario_insercionmascota(self):
-        t = Toplevel(self)
-        t.geometry("350x300")
-        t.title("Formulario de insercion")
-        Label(t ,text = "ID Cliente").grid(row=0,column = 0)
-        Label(t ,text = "ID mascota").grid(row=1,column = 0)
-        
-        Label(t ,text = "Nombre").grid(row=2,column = 0)
-        Label(t ,text = "Tipo de mascota").grid(row=3,column = 0)
-        Label(t ,text = "Raza").grid(row=4,column = 0)
-        Label(t ,text = "Fecha de Nacimiento (DD-MM-YY)").grid(row=5,column = 0)
-        Label(t ,text = "Sexo").grid(row=6,column = 0)
-        Label(t ,text = "Color").grid(row=7,column = 0)
-        Label(t ,text = "Castrado").grid(row=8,column = 0)
-        Label(t ,text = "Fecha Ultima visita (DD-MM-YY)").grid(row=9,column = 0)
-        idCliente = Entry(t)
-        idCliente.grid(row = 0, column = 1)
-        idMascota = Entry(t)
-        idMascota.grid(row = 1,column = 1)
-        nombre = Entry(t)
-        nombre.grid(row = 2,column = 1)
-        tipoMascota = Entry(t)
-        tipoMascota.grid(row = 3,column = 1)
-        raza = Entry(t)
-        raza.grid(row = 4,column = 1)
-        fechaN = Entry(t)
-        fechaN.grid(row = 5,column = 1)
-        sexo = Entry(t)
-        sexo.grid(row = 6,column = 1)
-        color = Entry(t)
-        color.grid(row = 7,column = 1)
-        castrado = Entry(t)
-        castrado.grid(row = 8,column = 1)
-        fechaUltima = Entry(t)
-        fechaUltima.grid(row = 9,column = 1)
-        from mascota import addMascota
-        Button(t , text="Guardar", command=lambda: addMascota(idCliente.get(), idMascota.get(), nombre.get(), tipoMascota.get(), raza.get(),fechaN.get(), sexo.get(), color.get(),castrado.get(), fechaUltima.get())).grid(row=10,column=1)
 
     def formulario_insercionvisita(self):
         t = Toplevel(self)
