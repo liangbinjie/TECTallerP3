@@ -50,3 +50,22 @@ def clienteExist(idCliente):
 
     else:
         return idCliente
+    
+def getCliente(idCliente):
+    for cliente in LISTA_CLIENTES:
+        if cliente[0] == idCliente:
+            return cliente
+    return False
+
+def consultarCliente(idCliente):
+    cliente = getCliente(idCliente)
+    if cliente != False:
+        messagebox.showinfo("Consulta de cliente", f"ID: {cliente[0]}\n"+
+                  f"Nombre: {cliente[1]}\n"+
+                  f"Direccion: {cliente[2]}\n"+
+                  f"Codigo pais: {cliente[3]}\n"+
+                  f"Codigo ciudad: {cliente[4]}\n"+
+                  f"Telefono: {cliente[5]}\n"+
+                  f"Fecha ultima visita: {cliente[6]}-{cliente[7]}-{cliente[8]}\n"+
+                  f"Porcentaje de despuesto: {cliente[9]}%\n"+
+                  f"Saldo a deber: ${cliente[10]}")

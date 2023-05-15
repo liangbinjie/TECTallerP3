@@ -1,11 +1,11 @@
 from tkinter import Menu
-
+from forms import *
 # variable padre = significa la ventana padre a la que esta asociado
 
 def vMantenimiento(padre):
     mantenimiento = Menu(padre)
     insercion = Menu(mantenimiento) # definimos el submenu de insercion
-    insercion.add_command(label="Pais")
+    insercion.add_command(label="Pais", command=formulario_insercionpais)
     insercion.add_command(label="Ciudad")
     insercion.add_command(label="Clientes")
     insercion.add_command(label="Mascotas")

@@ -277,34 +277,41 @@ class App(Frame):
 
     def formulario_insercionmascota(self):
         t = Toplevel(self)
-        t.geometry("300x150")
+        t.geometry("350x300")
         t.title("Formulario de insercion")
-        Label(t ,text = "Codigo de cliente").grid(row=0,column = 0)
-        Label(t ,text = "Codigo de mascota").grid(row=1,column = 0)
+        Label(t ,text = "ID Cliente").grid(row=0,column = 0)
+        Label(t ,text = "ID mascota").grid(row=1,column = 0)
         
-        Label(t ,text = "Tipo de mascota").grid(row=2,column = 0)
-        Label(t ,text = "Raza").grid(row=3,column = 0)
-        Label(t ,text = "Fecha de Nacimiento").grid(row=4,column = 0)
-        Label(t ,text = "Sexo").grid(row=5,column = 0)
-        Label(t ,text = "Color").grid(row=6,column = 0)
-        Label(t ,text = "Castrado").grid(row=7,column = 0)
-        Label(t ,text = "Fecha de ultima visita").grid(row=8,column = 0)
-
-
-        Label(t ,text = "Nombre").grid(row=9,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        Codigo_de_Mascota = Entry(t).grid(row = 1,column = 1)
-
-        TipoDeMascota = Entry(t).grid(row = 2,column = 1)
-        Raza = Entry(t).grid(row = 3,column = 1)
-        FechaNacimiento = Entry(t).grid(row = 4,column = 1)
-        Sexo = Entry(t).grid(row = 5,column = 1)
-        Color = Entry(t).grid(row = 6,column = 1)
-        Castrado = Entry(t).grid(row = 7,column = 1)
-        FechaUltimaVisita = Entry(t).grid(row = 8,column = 1)
-
-        nombre = Entry(t).grid(row = 9,column = 1)
-        Button(t , text="Guardar").grid(row=10,column=1)
+        Label(t ,text = "Nombre").grid(row=2,column = 0)
+        Label(t ,text = "Tipo de mascota").grid(row=3,column = 0)
+        Label(t ,text = "Raza").grid(row=4,column = 0)
+        Label(t ,text = "Fecha de Nacimiento (DD-MM-YY)").grid(row=5,column = 0)
+        Label(t ,text = "Sexo").grid(row=6,column = 0)
+        Label(t ,text = "Color").grid(row=7,column = 0)
+        Label(t ,text = "Castrado").grid(row=8,column = 0)
+        Label(t ,text = "Fecha Ultima visita (DD-MM-YY)").grid(row=9,column = 0)
+        idCliente = Entry(t)
+        idCliente.grid(row = 0, column = 1)
+        idMascota = Entry(t)
+        idMascota.grid(row = 1,column = 1)
+        nombre = Entry(t)
+        nombre.grid(row = 2,column = 1)
+        tipoMascota = Entry(t)
+        tipoMascota.grid(row = 3,column = 1)
+        raza = Entry(t)
+        raza.grid(row = 4,column = 1)
+        fechaN = Entry(t)
+        fechaN.grid(row = 5,column = 1)
+        sexo = Entry(t)
+        sexo.grid(row = 6,column = 1)
+        color = Entry(t)
+        color.grid(row = 7,column = 1)
+        castrado = Entry(t)
+        castrado.grid(row = 8,column = 1)
+        fechaUltima = Entry(t)
+        fechaUltima.grid(row = 9,column = 1)
+        from mascota import addMascota
+        Button(t , text="Guardar", command=lambda: addMascota(idCliente.get(), idMascota.get(), nombre.get(), tipoMascota.get(), raza.get(),fechaN.get(), sexo.get(), color.get(),castrado.get(), fechaUltima.get())).grid(row=10,column=1)
 
     def formulario_insercionvisita(self):
         t = Toplevel(self)
@@ -397,23 +404,22 @@ class App(Frame):
         t = Toplevel(self)
         t.geometry("300x150")
         t.title("Formulario de consulta")
-        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
-        Label(t ,text = "Codigo de Ciudad").grid(row=1,column = 0)
-        Label(t ,text = "Codigo de Cliente").grid(row=2,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        Codigo_de_Ciudad = Entry(t).grid(row = 1, column = 1)
-        Codigo_de_cliente = Entry(t).grid(row = 2, column = 1)
-        Button(t , text="Consultar").grid(row=3,column=1)
+        Label(t ,text = "ID Cliente").grid(row=0,column = 0)
+
+        idCliente = Entry(t)
+        idCliente.grid(row = 0, column = 1)
+        from cliente import consultarCliente
+        Button(t , text="Consultar", command=lambda:consultarCliente(idCliente.get())).grid(row=3,column=1)
 
     def formulario_consultaMascota(self):
         t = Toplevel(self)
         t.geometry("300x150")
         t.title("Formulario de consulta")
-        Label(t ,text = "Codigo de Cliente").grid(row=0,column = 0)
         Label(t ,text = "Codigo de Mascota").grid(row=1,column = 0)
-        Codigo_de_Cliente = Entry(t).grid(row = 0, column = 1)
-        Codigo_de_Mascota = Entry(t).grid(row = 1, column = 1)
-        Button(t , text="Consultar").grid(row=2,column=1)
+        idMascota = Entry(t)
+        idMascota.grid(row = 1, column = 1)
+        from mascota import consultarMascota
+        Button(t , text="Consultar", command=lambda: consultarMascota(idMascota.get())).grid(row=2,column=1)
 
     def formulario_consultaVisita(self):
         t = Toplevel(self)
@@ -643,6 +649,10 @@ def main():
     cargarPaises()
     from ciudad import cargarCiudad
     cargarCiudad()
+    from cliente import cargarClientes
+    cargarClientes()
+    from mascota import cargarMascotas
+    cargarMascotas()
     root = Tk()
     root.resizable(False, False)
     root.geometry("880x620")
