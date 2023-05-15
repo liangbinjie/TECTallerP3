@@ -549,6 +549,12 @@ def main():
     cargarClientes()
     from mascota import cargarMascotas
     cargarMascotas()
+    from visitas import cargarVisitas
+    cargarVisitas()
+    from medicacion import cargarMed
+    cargarMed()
+    from tratamiento import cargarTratamientos
+    cargarTratamientos()
     root = Tk()
     root.resizable(False, False)
     root.geometry("880x620")
