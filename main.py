@@ -184,6 +184,8 @@ class App(Frame):
             self.popup.grab_release()
 
 
+# ********** SECCION FORMULARIOS ***************
+
     def formulario_contacto(self):
         """
         Popup para el formulario de contacto
@@ -196,54 +198,82 @@ class App(Frame):
         Label(t ,text = "Correo").grid(row = 1,column = 0)
         Label(t ,text = "Telefono").grid(row = 2,column = 0)
         Label(t ,text = "Comentarios", height=2).grid(row = 3,column = 0)
-        nombre = Entry(t).grid(row = 0,column = 1)
-        correo = Entry(t).grid(row = 1,column = 1)
-        telefono = Entry(t).grid(row = 2,column = 1)
-        comentarios = Entry(t).grid(row = 3,column = 1)
-        Button(t ,text="Guardar").grid(row=4,column=1)
+        nombre = Entry(t)
+        nombre.grid(row = 0,column = 1)
+        correo = Entry(t)
+        correo.grid(row = 1,column = 1)
+        telefono = Entry(t)
+        telefono.grid(row = 2,column = 1)
+        comentarios = Entry(t)
+        comentarios.grid(row = 3,column = 1)
+        from datos import guardarContacto
+        Button(t ,text="Guardar", command= lambda: guardarContacto(nombre.get(), correo.get(), telefono.get(), comentarios.get())).grid(row=4,column=1)
+    
 
+# ******** SECCION FORMULARIO INSERCION ********
     def formulario_insercionpais(self):
         t = Toplevel(self)
         t.geometry("300x150")
         t.title("Formulario de insercion")
         Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
         Label(t ,text = "Nombre").grid(row=1,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        nombre = Entry(t).grid(row = 1,column = 1)
-        Button(t , text="Guardar").grid(row=2,column=1)
+        idPais = Entry(t)
+        idPais.grid(row = 0, column = 1)
+        nombre = Entry(t)
+        nombre.grid(row = 1,column = 1)
+        from pais import addPais
+        Button(t , text="Guardar", command=lambda: addPais(idPais.get(), nombre.get()) ).grid(row=2,column=1)
 
     def formulario_insercionciudad(self):
         t = Toplevel(self)
-        t.geometry("300x150")
+        t.geometry("300x250")
         t.title("Formulario de insercion")
         Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
         Label(t ,text = "Codigo de ciudad").grid(row=1,column =0)
         Label(t ,text = "Nombre").grid(row=2,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        Codigo_de_Ciudad = Entry(t).grid(row = 1,column = 1)
-        nombre = Entry(t).grid(row = 2,column = 1)
-        
-        Button(t , text="Guardar").grid(row=3,column=1)
+        codPais = Entry(t)
+        codPais.grid(row = 0, column = 1)
+        codCiudad = Entry(t)
+        codCiudad.grid(row = 1,column = 1)
+        nombre = Entry(t)
+        nombre.grid(row = 2,column = 1)
+        from ciudad import addCiudad
+        Button(t , text="Guardar", command=lambda: addCiudad(codPais.get(), codCiudad.get(), nombre.get())).grid(row=3,column=1)
 
     def formulario_insercioncliente(self):
         t = Toplevel(self)
-        t.geometry("300x150")
+        t.geometry("300x300")
         t.title("Formulario de insercion")
-        Label(t ,text = "Codigo de pais").grid(row=0,column = 0)
-        Label(t ,text = "Codigo de ciudad").grid(row=1,column =0)
-        Label(t ,text = "Codigo de cliente").grid(row=2,column = 0)
-        Label(t ,text = "Direccion").grid(row=3,column = 0)
-        Label(t ,text = "Telefono").grid(row=4,column = 0)
-        Label(t ,text = "Fecha de ultima visita").grid(row=5,column = 0)
-        Label(t ,text = "Nombre").grid(row=6,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        Codigo_de_Ciudad = Entry(t).grid(row = 1,column = 1)
-        Codigo_de_Cliente = Entry(t).grid(row = 2,column = 1)
-        Direccion = Entry(t).grid(row = 3,column = 1)
-        Telefono = Entry(t).grid(row = 4,column = 1)
-        Fecha_de_ultima_visita = Entry(t).grid(row = 5,column = 1)
-        nombre = Entry(t).grid(row = 6,column = 1)
-        Button(t , text="Guardar").grid(row=7,column=1)
+        Label(t ,text = "ID").grid(row=0,column = 0)
+        Label(t, text= "Nombre").grid(row=1, column=0) 
+        Label(t, text= "Direccion").grid(row=2, column=0) 
+        Label(t, text= "ID Pais").grid(row=3, column=0) 
+        Label(t, text= "ID Ciudad").grid(row=4, column=0)
+        Label(t, text= "Telefono").grid(row=5, column=0)
+        Label(t, text= "Fecha (DD-MM-YY)").grid(row=6, column=0)
+        Label(t, text= "Descuento").grid(row=7, column=0)
+        Label(t, text= "Saldo").grid(row=8, column=0)
+        idCliente = Entry(t)
+        idCliente.grid(row=0, column=1)
+        nombre = Entry(t)
+        nombre.grid(row=1, column=1)
+        direccion = Entry(t)
+        direccion.grid(row=2, column=1)
+        pais = Entry(t)
+        pais.grid(row=3, column=1)
+        ciudad = Entry(t)
+        ciudad.grid(row=4, column=1)
+        telefono = Entry(t)
+        telefono.grid(row=5, column=1)
+        fecha = Entry(t)
+        fecha.grid(row=6, column=1)
+        descuento = Entry(t)
+        descuento.grid(row=7, column=1)
+        saldo = Entry(t)
+        saldo.grid(row=8, column=1)
+
+        from cliente import addCliente
+        Button(t , text="Guardar", command=lambda: addCliente(idCliente.get(), nombre.get(), direccion.get(), pais.get(), ciudad.get(), telefono.get(), fecha.get(), descuento.get(), saldo.get())).grid(row=9,column=1)
 
     def formulario_insercionmascota(self):
         t = Toplevel(self)
@@ -340,23 +370,28 @@ class App(Frame):
 
         Button(t , text="Guardar").grid(row=7,column=1)
 
+
+# ************* SECCION FORMULARIOS DE CONSULTA ***************
+
     def formulario_consultapais(self):
         t = Toplevel(self)
         t.geometry("300x150")
         t.title("Formulario de consulta")
         Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        Button(t , text="Consultar").grid(row=1,column=1)
+        idPais = Entry(t)
+        idPais.grid(row = 0, column = 1)
+        from pais import consultarPais
+        Button(t , text="Consultar", command=lambda: consultarPais(idPais.get())).grid(row=1,column=1)
 
     def formulario_consultaCiudad(self):
         t = Toplevel(self)
         t.geometry("300x150")
         t.title("Formulario de consulta")
-        Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
         Label(t ,text = "Codigo de Ciudad").grid(row=1,column = 0)
-        Codigo_de_pais = Entry(t).grid(row = 0, column = 1)
-        Codigo_de_Ciudad = Entry(t).grid(row = 1, column = 1)
-        Button(t , text="Consultar").grid(row=2,column=1)
+        codCiudad = Entry(t)
+        codCiudad.grid(row = 1, column = 1)
+        from ciudad import consultarCiudad
+        Button(t , text="Consultar", command=lambda: consultarCiudad(codCiudad.get())).grid(row=2,column=1)
 
     def formulario_consultaCliente(self):
         t = Toplevel(self)
@@ -604,7 +639,10 @@ class App(Frame):
 
 
 def main():
-
+    from pais import cargarPaises
+    cargarPaises()
+    from ciudad import cargarCiudad
+    cargarCiudad()
     root = Tk()
     root.resizable(False, False)
     root.geometry("880x620")

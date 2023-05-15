@@ -1,0 +1,19 @@
+TABLA_CIUDADES = "Archivos/Ciudades.txt"
+TABLA_CLIENTES = "Archivos/Clientes.txt"
+TABLA_PAISES = "Archivos/Paises.txt"
+TABLA_MASCOTAS = "Archivos/Mascotas.txt"
+TABLA_VISITAS = "Archivos/Visitas.txt"
+TABLA_TRATAMIENTOS = "Archivos/Tratamiento.txt"
+TABLA_MEDICACION = "Archivos/Medicacion.txt"
+REPORTESVISITAS = "Archivos/reportes/reportesvisitas.txt"
+REPORTESTRATAMIENTOS = "Archivos/reportes/reportestratamientos.txt"
+REPORTESMEDICAMENTOS = "Archivos/reportes/reportesmedicamentos.txt"
+
+LISTA_CONTACTOS = []
+LISTA_PAISES = []
+LISTA_CIUDADES = []
+LISTA_CLIENTES = []
+LISTA_MASCOTAS = []
+LISTA_VISITAS = []
+LISTA_TRATAMIENTOS = []
+LISTA_MEDICACION = []
