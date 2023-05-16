@@ -10,9 +10,9 @@ def vMantenimiento(padre):
     insercion.add_command(label="Ciudad", command=formulario_insercionciudad)
     insercion.add_command(label="Clientes", command=formulario_insercioncliente)
     insercion.add_command(label="Mascotas", command=formulario_insercionmascota)
-    insercion.add_command(label="Visitas")
-    insercion.add_command(label="Tratamientos")
-    insercion.add_command(label="Medicacion")
+    insercion.add_command(label="Visitas", command=formulario_insercionvisita)
+    insercion.add_command(label="Tratamientos", command=formulario_inserciontratamiento)
+    insercion.add_command(label="Medicacion", command=formulario_insercionMedicacion)
 
     consulta = Menu(mantenimiento) # definimos el submenu de consulta
     consulta.add_command(label="Pais", command=formulario_consultapais)
@@ -21,7 +21,7 @@ def vMantenimiento(padre):
     consulta.add_command(label="Mascotas", command=formulario_consultaMascota)
     consulta.add_command(label="Visitas", command=formulario_consultaVisita)
     consulta.add_command(label="Tratamientos", command=formulario_consultatratamiento)
-    consulta.add_command(label="Medicacion")
+    consulta.add_command(label="Medicacion", command=formulario_consultaMedicacion)
     
     modificar = Menu(mantenimiento) # definimos el submenu de insercion
     modificar.add_command(label="Pais")
