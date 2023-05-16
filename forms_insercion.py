@@ -101,3 +101,85 @@ def formulario_insercionmascota():
     fechaUltima.grid(row = 9,column = 1)
     from mascota import addMascota
     Button(t , text="Guardar", command=lambda: addMascota(idCliente.get(), idMascota.get(), nombre.get(), tipoMascota.get(), raza.get(),fechaN.get(), sexo.get(), color.get(),castrado.get(), fechaUltima.get())).grid(row=10,column=1)
+
+
+# agregar insercion visita, tratamiento, medicamento
+
+def formulario_insercionvisita():
+        t = Toplevel()
+        t.geometry("300x150")
+        t.title("Formulario de insercion")
+        Label(t ,text = "Codigo de visita").grid(row=0,column = 0)
+        
+        Label(t ,text = "Codigo de Animal").grid(row=1,column = 0)
+        Label(t ,text = "Fecha de ultima visita").grid(row=2,column = 0)
+        Label(t ,text = "Total Factura").grid(row=3,column = 0)
+        Label(t ,text = "Forma de Pago").grid(row=4,column = 0)
+
+        CodigoDeVisita = Entry(t)
+        CodigoDeVisita.grid(row = 0, column = 1)
+        CodigoDeAnimal = Entry(t)
+        CodigoDeAnimal.grid(row = 1,column = 1)
+
+        FechaUltimaVisita = Entry(t)
+        FechaUltimaVisita.grid(row = 2,column = 1)
+        TotalFactura = Entry(t)
+        TotalFactura.grid(row = 3,column = 1)
+        FormaDePago = Entry(t)
+        FormaDePago.grid(row = 4,column = 1)
+
+        from visitas import insercionvisita
+
+        Button(t , text="Guardar", command = lambda: insercionvisita(CodigoDeVisita.get(), CodigoDeAnimal.get(), FechaUltimaVisita.get(), TotalFactura.get(), FormaDePago.get()) ).grid(row=5,column=1)
+
+def formulario_inserciontratamiento():
+    t = Toplevel()
+    t.geometry("300x150")
+    t.title("Formulario de insercion")
+    Label(t ,text = "Codigo de Tratamiento").grid(row=0,column = 0)
+    Label(t ,text = "Nombre").grid(row=1,column = 0)
+    Label(t ,text = "Precio Unitario").grid(row=2,column = 0)
+    Label(t ,text = "Cantidad").grid(row=3,column = 0)
+    CodigoDeTratamiento = Entry(t)
+    CodigoDeTratamiento.grid(row = 0, column = 1)
+    nombre = Entry(t)
+    nombre.grid(row = 1,column = 1)
+    PrecioUnitario = Entry(t)
+    PrecioUnitario.grid(row = 2,column = 1)
+    Cantidad = Entry(t)
+    Cantidad.grid(row = 3,column = 1)
+
+    from tratamiento import inserciontratamiento
+
+    Button(t , text="Guardar", command = lambda: inserciontratamiento(CodigoDeTratamiento.get(),nombre.get(),PrecioUnitario.get(),Cantidad.get())).grid(row=4,column=1)
+
+def formulario_insercionMedicacion():
+    t = Toplevel()
+    t.geometry("300x200")
+    t.title("Formulario de insercion")
+    Label(t ,text = "Codigo del Animal").grid(row=0,column = 0)
+    Label(t ,text = "Codigo de Medicacion").grid(row=1,column = 0)
+    Label(t ,text = "Fecha de Ultima Visita").grid(row=2, column = 0)
+    Label(t ,text = "Lista de Medicamentos").grid(row=3, column = 0)
+    Label(t ,text = "Costo unitario").grid(row=4, column = 0)
+    Label(t ,text = "Cantidad").grid(row=5, column = 0)
+    Label(t ,text = "Costo total").grid(row=6, column = 0)
+
+    Codigo_de_Animal = Entry(t)
+    Codigo_de_Animal.grid(row = 0, column = 1)
+    codigoDeMedicacion = Entry(t)
+    codigoDeMedicacion.grid(row = 1,column = 1)
+    FechaDeUltimaVisita = Entry(t)
+    FechaDeUltimaVisita.grid(row = 2,column = 1)
+    ListaDeMedicamentos = Entry(t)
+    ListaDeMedicamentos.grid(row = 3,column = 1)
+    CostoUnitario = Entry(t)
+    CostoUnitario.grid(row = 4,column = 1)
+    Cantidad = Entry(t)
+    Cantidad.grid(row = 5,column = 1)
+    CostoTotal = Entry(t)
+    CostoTotal.grid(row = 6,column = 1)
+
+    from medicacion import insercionmedicacion
+
+    Button(t , text="Guardar", command = lambda: insercionmedicacion(Codigo_de_Animal.get(),codigoDeMedicacion.get(),FechaDeUltimaVisita.get(),ListaDeMedicamentos.get(),CostoUnitario.get(),Cantidad.get(),CostoTotal.get())).grid(row=7,column=1)

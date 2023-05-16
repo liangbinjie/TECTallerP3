@@ -19,8 +19,8 @@ def vMantenimiento(padre):
     consulta.add_command(label="Ciudad", command=formulario_consultaCiudad)
     consulta.add_command(label="Clientes", command=formulario_consultaCliente)
     consulta.add_command(label="Mascotas", command=formulario_consultaMascota)
-    consulta.add_command(label="Visitas")
-    consulta.add_command(label="Tratamientos")
+    consulta.add_command(label="Visitas", command=formulario_consultaVisita)
+    consulta.add_command(label="Tratamientos", command=formulario_consultatratamiento)
     consulta.add_command(label="Medicacion")
     
     modificar = Menu(mantenimiento) # definimos el submenu de insercion
