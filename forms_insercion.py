@@ -11,7 +11,7 @@ def formulario_insercionpais():
     nombre = Entry(t)
     nombre.grid(row = 1,column = 1)
     from pais import addPais
-    Button(t , text="Guardar", command=lambda: addPais(idPais.get(), nombre.get()) ).grid(row=2,column=1)
+    Button(t , text="Guardar", command=lambda: addPais(idPais.get(), nombre.get(), t) ).grid(row=2,column=1)
 
 def formulario_insercionciudad():
     t = Toplevel()
@@ -27,7 +27,7 @@ def formulario_insercionciudad():
     nombre = Entry(t)
     nombre.grid(row = 2,column = 1)
     from ciudad import addCiudad
-    Button(t , text="Guardar", command=lambda: addCiudad(codPais.get(), codCiudad.get(), nombre.get())).grid(row=3,column=1)
+    Button(t , text="Guardar", command=lambda: addCiudad(codPais.get(), codCiudad.get(), nombre.get(), t)).grid(row=3,column=1)
 
 def formulario_insercioncliente():
     t = Toplevel()
@@ -62,7 +62,7 @@ def formulario_insercioncliente():
     saldo.grid(row=8, column=1)
 
     from cliente import addCliente
-    Button(t , text="Guardar", command=lambda: addCliente(idCliente.get(), nombre.get(), direccion.get(), pais.get(), ciudad.get(), telefono.get(), fecha.get(), descuento.get(), saldo.get())).grid(row=9,column=1)
+    Button(t , text="Guardar", command=lambda: addCliente(idCliente.get(), nombre.get(), direccion.get(), pais.get(), ciudad.get(), telefono.get(), fecha.get(), descuento.get(), saldo.get(), t)).grid(row=9,column=1)
 
 def formulario_insercionmascota():
     t = Toplevel()
@@ -100,7 +100,7 @@ def formulario_insercionmascota():
     fechaUltima = Entry(t)
     fechaUltima.grid(row = 9,column = 1)
     from mascota import addMascota
-    Button(t , text="Guardar", command=lambda: addMascota(idCliente.get(), idMascota.get(), nombre.get(), tipoMascota.get(), raza.get(),fechaN.get(), sexo.get(), color.get(),castrado.get(), fechaUltima.get())).grid(row=10,column=1)
+    Button(t , text="Guardar", command=lambda: addMascota(idCliente.get(), idMascota.get(), nombre.get(), tipoMascota.get(), raza.get(),fechaN.get(), sexo.get(), color.get(),castrado.get(), fechaUltima.get(), t)).grid(row=10,column=1)
 
 
 # agregar insercion visita, tratamiento, medicamento

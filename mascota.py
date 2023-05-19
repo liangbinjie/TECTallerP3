@@ -24,7 +24,7 @@ def getMascota(idMascota):
     return False
 
 
-def addMascota(idCliente, idAnimal, nombreAnimal, tipoMascota, raza, fechaN, sexo, color, castrado, fechaUltimaVisita):
+def addMascota(idCliente, idAnimal, nombreAnimal, tipoMascota, raza, fechaN, sexo, color, castrado, fechaUltimaVisita, win):
     # cliente exista
     # id mascota no repetido
     # NumCliente;IdAnimal;Nombre;tipomascota;raza;fechanacimiento;sexo;color; castrado; fechaultimavisita
@@ -39,6 +39,7 @@ def addMascota(idCliente, idAnimal, nombreAnimal, tipoMascota, raza, fechaN, sex
     LISTA_MASCOTAS.append(nuevo)
     messagebox.showinfo("Agregado", "Mascota agregado a la base de datos")
     print(LISTA_MASCOTAS)
+    win.destroy()
 
 
 def mascotaExist(idMascota):
@@ -55,7 +56,7 @@ def mascotaExist(idMascota):
         return idMascota
 
 
-def consultarMascota(idMascota):
+def consultarMascota(idMascota ,win):
     mascota = getMascota(idMascota)
     if mascota != False:
         messagebox.showinfo("Consulta de mascota", f"ID cliente: {mascota[0]}\n"+
@@ -68,3 +69,30 @@ def consultarMascota(idMascota):
                       f"Color de mascota: {mascota[9]}\n"+
                       f"Castrado: {mascota[10]}\n"+
                       f"Fecha ultima visita: {mascota[11]}-{mascota[12]}-{mascota[13]}\n")
+    win.destroy()
+
+def eliminarMascotas(idMascota, win):
+    for mascota in LISTA_MASCOTAS:
+        if mascota[1] == idMascota:
+            LISTA_MASCOTAS.remove(mascota)
+            messagebox.showinfo("Elimiando", "La mascota ha sido eliminada")
+            win.destroy()
+            return LISTA_MASCOTAS
+        
+    messagebox.showerror("Error", "La mascota no se encontro")
+    return 0
+
+def modificarMascota(idMascota, nombre, castrado, win):
+    for mascota in LISTA_MASCOTAS:
+        if mascota[1] == idMascota:
+            if nombre != "":
+                mascota[2] = nombre
+            if castrado != "":
+                mascota[10] = castrado
+            messagebox.showinfo("Modificado", "Mascota modificada")
+            win.destroy()
+            return LISTA_MASCOTAS
+        
+    messagebox.showerror("Error", "Mascota no existe")
+    return 0
+    

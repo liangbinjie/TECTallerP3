@@ -1,6 +1,8 @@
 from tkinter import *
 from toolbar import *
 from forms_consulta import *
+from forms_eliminar import *
+from forms_modificar import *
 
 class App(Frame):
     def __init__(self):
@@ -84,14 +86,14 @@ class App(Frame):
         self.popupPaises = Menu(self.popup)
         self.popupPaises.add_command(label="Insercion",command= formulario_insercionpais)
         self.popupPaises.add_command(label="Consultar",command= formulario_consultapais)
-        self.popupPaises.add_command(label="Eliminar",command = self.formulario_eliminacionpais)
-        self.popupPaises.add_command(label="Modificar",command = self.formulario_modificacionpais)
+        self.popupPaises.add_command(label="Eliminar",command = form_eliminarPais)
+        self.popupPaises.add_command(label="Modificar",command = form_modificarPais)
         self.popup.add_cascade(label="Paises", menu=self.popupPaises)
         self.popupCiudades = Menu(self.popup)
         self.popupCiudades.add_command(label="Insercion",command = formulario_insercionciudad)
         self.popupCiudades.add_command(label="Consultar",command = formulario_consultaCiudad)
-        self.popupCiudades.add_command(label="Eliminar",command = self.formulario_eliminacionciudad)
-        self.popupCiudades.add_command(label="Modificar",command = self.formulario_modificacionciudad)
+        self.popupCiudades.add_command(label="Eliminar",command = form_eliminarCiudad)
+        self.popupCiudades.add_command(label="Modificar",command = form_modificarCiudad)
         self.popup.add_cascade(label="Ciudades", menu=self.popupCiudades)
 
         try:         
@@ -128,15 +130,15 @@ class App(Frame):
         self.popupCliente = Menu(self.popup)
         self.popupCliente.add_command(label="Insercion",command = formulario_insercioncliente)
         self.popupCliente.add_command(label="Consultar",command = formulario_consultaCliente)
-        self.popupCliente.add_command(label="Eliminar",command = self.formulario_eliminacionCliente)
-        self.popupCliente.add_command(label="Modificar",command = self.formulario_modificacionCliente)
+        self.popupCliente.add_command(label="Eliminar",command = form_eliminarCliente)
+        self.popupCliente.add_command(label="Modificar",command = form_modificarCliente)
         self.popup.add_cascade(label="Clientes", menu=self.popupCliente)
 
         self.popupMascotas = Menu(self.popup)
         self.popupMascotas.add_command(label="Insercion",command = formulario_insercionmascota)
         self.popupMascotas.add_command(label="Consultar",command = formulario_consultaMascota)
-        self.popupMascotas.add_command(label="Eliminar",command = self.formulario_eliminacionMascota)
-        self.popupMascotas.add_command(label="Modificar",command = self.formulario_modificacionmascota)
+        self.popupMascotas.add_command(label="Eliminar",command = form_eliminarMascota)
+        self.popupMascotas.add_command(label="Modificar",command = form_modificarMascota)
         self.popup.add_cascade(label="Mascotas", menu=self.popupMascotas)
 
         self.popupVisitas = Menu(self.popup)

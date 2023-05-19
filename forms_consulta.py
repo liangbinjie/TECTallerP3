@@ -10,7 +10,7 @@ def formulario_consultapais():
     idPais = Entry(t)
     idPais.grid(row = 0, column = 1)
     from pais import consultarPais
-    Button(t , text="Consultar", command=lambda: consultarPais(idPais.get())).grid(row=1,column=1)
+    Button(t , text="Consultar", command=lambda: consultarPais(idPais.get(), t)).grid(row=1,column=1)
 
 def formulario_consultaCiudad():
     t = Toplevel()
@@ -20,7 +20,7 @@ def formulario_consultaCiudad():
     codCiudad = Entry(t)
     codCiudad.grid(row = 1, column = 1)
     from ciudad import consultarCiudad
-    Button(t , text="Consultar", command=lambda: consultarCiudad(codCiudad.get())).grid(row=2,column=1)
+    Button(t , text="Consultar", command=lambda: consultarCiudad(codCiudad.get(), t)).grid(row=2,column=1)
 
 def formulario_consultaCliente():
     t = Toplevel()
@@ -31,7 +31,7 @@ def formulario_consultaCliente():
     idCliente = Entry(t)
     idCliente.grid(row = 0, column = 1)
     from cliente import consultarCliente
-    Button(t , text="Consultar", command=lambda:consultarCliente(idCliente.get())).grid(row=3,column=1)
+    Button(t , text="Consultar", command=lambda:consultarCliente(idCliente.get(), t)).grid(row=3,column=1)
 
 def formulario_consultaMascota():
     t = Toplevel()
@@ -41,7 +41,7 @@ def formulario_consultaMascota():
     idMascota = Entry(t)
     idMascota.grid(row = 1, column = 1)
     from mascota import consultarMascota
-    Button(t , text="Consultar", command=lambda: consultarMascota(idMascota.get())).grid(row=2,column=1)
+    Button(t , text="Consultar", command=lambda: consultarMascota(idMascota.get(), t)).grid(row=2,column=1)
 
 
 

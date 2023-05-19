@@ -1,6 +1,8 @@
 from tkinter import Menu
 from forms_consulta import *
 from forms_insercion import *
+from forms_eliminar import *
+from forms_modificar import *
 # variable padre = significa la ventana padre a la que esta asociado
 
 def vMantenimiento(padre):
@@ -24,22 +26,22 @@ def vMantenimiento(padre):
     consulta.add_command(label="Medicacion", command=formulario_consultaMedicacion)
     
     modificar = Menu(mantenimiento) # definimos el submenu de insercion
-    modificar.add_command(label="Pais")
-    modificar.add_command(label="Ciudad")
-    modificar.add_command(label="Clientes")
-    modificar.add_command(label="Mascotas")
+    modificar.add_command(label="Pais", command=form_modificarPais)
+    modificar.add_command(label="Ciudad", command=form_modificarCiudad)
+    modificar.add_command(label="Clientes", command=form_modificarCliente)
+    modificar.add_command(label="Mascotas", command=form_modificarMascota)
     modificar.add_command(label="Visitas")
     modificar.add_command(label="Tratamientos")
     modificar.add_command(label="Medicacion")
 
     eliminar = Menu(mantenimiento) # definimos el submenu de consulta
-    eliminar.add_command(label="Pais")
-    eliminar.add_command(label="Ciudad")
-    eliminar.add_command(label="Clientes")
-    eliminar.add_command(label="Mascotas")
+    eliminar.add_command(label="Pais", command=form_eliminarPais)
+    eliminar.add_command(label="Ciudad", command=form_eliminarCiudad)
+    eliminar.add_command(label="Clientes", command=form_eliminarCliente)
+    eliminar.add_command(label="Mascotas", command=form_eliminarMascota)
     eliminar.add_command(label="Visitas")
     eliminar.add_command(label="Tratamientos")
-    eliminar.add_command(label="Medicacion")
+    eliminar.add_command(label="Medicacion", command=form_eliminarPais)
 
     mantenimiento.add_cascade(label='Insercion', menu=insercion, underline=0)
     mantenimiento.add_cascade(label='Consulta', menu=consulta, underline=0)
