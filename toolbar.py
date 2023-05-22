@@ -3,6 +3,7 @@ from forms_consulta import *
 from forms_insercion import *
 from forms_eliminar import *
 from forms_modificar import *
+from reportes import *
 # variable padre = significa la ventana padre a la que esta asociado
 
 def vMantenimiento(padre):
@@ -52,19 +53,15 @@ def vMantenimiento(padre):
 
 
 def vReportes(padre):
+
     reportes = Menu(padre)
-    # opcion1 = Menu(reportes) # Definimos opcion 1
-    # opcion1.add_command(label="Reportes")
-    # opcion1.add_command(label="Opcion2")
-    # opcion1.add_command(label="Opcion3")
-
-    # opcion2 = Menu(reportes) # Defininimos opcion 2
-    # opcion2.add_command(label="Opcion1")
-    # opcion2.add_command(label="Opcion2")
-    # opcion2.add_command(label="Opcion3")
-
-    reportes.add_command(label="Reportes Solicitados", underline=0)
-    # reportes.add_cascade(label="Opcion 2", menu=opcion2, underline=0)
+    reportes.add_command(label="Lista de paises", underline=0, command=getListaPaises)
+    reportes.add_command(label="Ciudades de un pais", underline=0, command=formCiudadesPais)
+    reportes.add_command(label="Lista de clientes", underline=0, command=getListaClientes)
+    reportes.add_command(label="Lista de mascotas de cliente", underline=0, command=formMascotasCliente)
+    reportes.add_command(label="Cliente con mas saldo", underline=0, command=clienteMasSaldo)
+    reportes.add_command(label="Clientes con mas descuento", underline=0, command=clientesMasDescuento)
+    reportes.add_command(label="Clientes de credito", underline=0, command=clientesCredito)
 
     return reportes
 

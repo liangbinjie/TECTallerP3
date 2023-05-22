@@ -1,0 +1,3 @@
+Codigo: 12 | Nombre: Costa Rica
+Codigo: 23 | Nombre: Estados Unidos
+Codigo: 45 | Nombre: Panama
