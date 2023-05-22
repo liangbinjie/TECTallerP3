@@ -108,14 +108,14 @@ class App(Frame):
         self.popupTratamientos = Menu(self.popup)
         self.popupTratamientos.add_command(label="Insercion",command = formulario_inserciontratamiento)
         self.popupTratamientos.add_command(label="Consultar",command = formulario_consultatratamiento)
-        self.popupTratamientos.add_command(label="Eliminar",command = self.formulario_eliminacionTratamiento)
-        self.popupTratamientos.add_command(label="Modificar",command = self.formulario_modificaciontratamiento)
+        self.popupTratamientos.add_command(label="Eliminar",command = form_eliminartratamiento)
+        self.popupTratamientos.add_command(label="Modificar",command = form_modificartratamiento)
         self.popup.add_cascade(label="Tratamientos", menu=self.popupTratamientos)
         self.popupMedicamentos = Menu(self.popup)
         self.popupMedicamentos.add_command(label="Insercion",command = formulario_insercionMedicacion)
         self.popupMedicamentos.add_command(label="Consultar",command = formulario_consultaMedicacion)
-        self.popupMedicamentos.add_command(label="Eliminar",command = self.formulario_eliminacionMedicacion)
-        self.popupMedicamentos.add_command(label="Modificar", command = self.formulario_modificacionMedicacion)
+        self.popupMedicamentos.add_command(label="Eliminar",command = form_eliminarmedicamento)
+        self.popupMedicamentos.add_command(label="Modificar", command = form_modificarmedicacion)
         self.popup.add_cascade(label="Medicamentos", menu=self.popupMedicamentos)
 
         try:         
@@ -144,8 +144,8 @@ class App(Frame):
         self.popupVisitas = Menu(self.popup)
         self.popupVisitas.add_command(label="Insercion",command = formulario_insercionvisita)
         self.popupVisitas.add_command(label="Consultar",command = formulario_consultaVisita)
-        self.popupVisitas.add_command(label="Eliminar") #No estoy seguro pero no decia que sucedia si se elimina visita en las especificaciones.
-        self.popupVisitas.add_command(label="Modificar", command = self.formulario_modificacionvisita)
+        self.popupVisitas.add_command(label="Eliminar",command = form_eliminarvisita)
+        self.popupVisitas.add_command(label="Modificar", command = form_modificarVisita)
         self.popup.add_cascade(label="Visitas", menu=self.popupVisitas)
 
         try:         

@@ -44,3 +44,35 @@ def form_eliminarMascota():
     idMascota.grid(row = 0, column = 1)
     from mascota import eliminarMascotas
     Button(t , text="Consultar", command=lambda: eliminarMascotas(idMascota.get(), t)).grid(row=1,column=1)
+
+
+def form_eliminarmedicamento():
+    t = Toplevel()
+    t.geometry("300x150")
+    t.title("Formulario de eliminar")
+    Label(t,text = "Codigo de medicamento a eliminar:").grid(row=0,column=0)
+    CodigoMed = Entry(t)
+    CodigoMed.grid(row = 0,column = 1)
+    from medicacion import eliminarmed
+    Button(t,text="Eliminar", command = lambda: eliminarmed(CodigoMed.get())).grid(row=1,column=1)
+
+
+def form_eliminarvisita():
+    t = Toplevel()
+    t.geometry("300x150")
+    t.title("Formulario de eliminar")
+    Label(t,text = "Codigo de visita a eliminar:").grid(row=0,column=0)
+    Codigovisita = Entry(t)
+    Codigovisita.grid(row = 0,column = 1)
+    from visitas import eliminarvisita
+    Button(t,text="Eliminar", command = lambda: eliminarvisita(Codigovisita.get())).grid(row=1,column=1)
+
+def form_eliminartratamiento():
+    t = Toplevel()
+    t.geometry("300x150")
+    t.title("Formulario de eliminar")
+    Label(t,text = "Codigo de tratamiento a eliminar:").grid(row=0,column=0)
+    Codigotrat = Entry(t)
+    Codigotrat.grid(row = 0,column = 1)
+    from tratamiento import eliminartrat
+    Button(t,text="Eliminar", command = lambda: eliminartrat(Codigotrat.get())).grid(row=1,column=1)

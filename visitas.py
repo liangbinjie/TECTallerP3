@@ -1,3 +1,4 @@
+from email import message
 from variables import TABLA_VISITAS,LISTA_VISITAS
 from tkinter import messagebox
 
@@ -33,6 +34,12 @@ def visitanum(idvisita):
             return i
         i=i-1
 
+def visitaind(codvisita):
+    for visita in LISTA_VISITAS:
+        if visita[0] == codvisita:
+            return visita
+
+
 def consultarvisitas(idanim,idvisita):
     if animalexist(idanim) == True:
         if visitaexist(idvisita) == True:
@@ -51,9 +58,9 @@ def consultarvisitas(idanim,idvisita):
 
 
 def insercionvisita(idvisita, codanim, fecha, factura, formadepago):
-    if visitaexist(idvisita)==False:
-        messagebox.showerror("Error", "El codigo visita no es repetido")
-        return "Codigo no repetido"
+    if visitaexist(idvisita)==True:
+        messagebox.showerror("Error", "El codigo visita es repetido")
+        return "Codigo repetido"
     else:
         if animalexist == False:
             messagebox.showerror("Error", "No se encontro el codigo animal")
@@ -63,6 +70,28 @@ def insercionvisita(idvisita, codanim, fecha, factura, formadepago):
             LISTA_VISITAS.append(nuevo)
             messagebox.showinfo("Agregado", "Nueva visita agregada")
             print(LISTA_VISITAS)
+
+def eliminarvisita(codvisita):
+    if visitaexist(codvisita)==True:
+        visita = visitaind(codvisita)
+        print(visita)
+        LISTA_VISITAS.remove(visita)
+        print(LISTA_VISITAS)
+        messagebox.showinfo("Eliminado","Visita eliminada")
+    else:
+        messagebox.showerror("Error","No se encontro el codigo de visita")
+
+def ModificarVisita(codanim,codvisita,pago):
+    if animalexist(codanim)==True:
+        if visitaexist(codvisita)==True:
+            num=visitanum(codvisita)
+            LISTA_VISITAS[num][6]=pago
+            print(LISTA_VISITAS)
+            messagebox.showinfo("Modificado","Forma de pago modificada")
+        else:
+            messagebox.showerror("Error","No se encontro el codigo de visita")
+    else:
+        messagebox.showerror("Error", "No se encontro el codigo animal")
 
 
 

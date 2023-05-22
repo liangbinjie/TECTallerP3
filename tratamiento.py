@@ -26,6 +26,11 @@ def tratamientonum(idtratamiento):
         i=i+1
     return i
 
+def jalatrat(idtrat):
+    for tratamiento in LISTA_TRATAMIENTOS:
+        if tratamiento[0] == idtrat:
+            return tratamiento
+
 
 def consultartratamiento(idtratamiento):
     if tratamientoexist(idtratamiento)==True:
@@ -45,5 +50,25 @@ def inserciontratamiento(CodigoTrat,nombre,precio,cant):
         nuevo = [CodigoTrat,nombre,precio,cant]
         LISTA_TRATAMIENTOS.append(nuevo)
         print(LISTA_TRATAMIENTOS)
+
+
+
+def eliminartrat(codtrat):
+    if tratamientoexist(codtrat)==True:
+        tratamiento = jalatrat(codtrat)
+        LISTA_TRATAMIENTOS.remove(tratamiento)
+        print(LISTA_TRATAMIENTOS)
+        messagebox.showinfo("Eliminado","Tratamiento eliminado")
+    else:
+        messagebox.showerror("Error","No se encontro el codigo de tratamiento")
+
+def modificartrat(codtrat,precio):
+    if tratamientoexist(codtrat)==True:
+        numero=tratamientonum(codtrat)
+        LISTA_TRATAMIENTOS[numero][2] = precio
+        messagebox.showinfo("Modificado","Tratamiento modificado")
+    else:
+        messagebox.showerror("Error","No se encontro el codigo de tratamiento")
+
 
     
