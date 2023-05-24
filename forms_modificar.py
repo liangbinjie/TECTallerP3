@@ -19,7 +19,7 @@ def form_modificarCiudad():
     t = Toplevel()
     t.geometry("300x150")
     t.title("Formulario de modificar")
-    Label(t ,text = "Codigo de Pais").grid(row=0,column = 0)
+    Label(t ,text = "Codigo de Ciudad").grid(row=0,column = 0)
     idCiudad = Entry(t)
     idCiudad.grid(row = 0, column = 1)
     nombre = Entry(t)
