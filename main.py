@@ -3,6 +3,7 @@ from toolbar import *
 from forms_consulta import *
 from forms_eliminar import *
 from forms_modificar import *
+from facturas import *
 
 class App(Frame):
     def __init__(self):
@@ -38,7 +39,7 @@ class App(Frame):
     # ********** SECCION DE LAS DIFERENTES OPCIONES DEL TOOLBAR ***************
         menubar.add_cascade(label="Mantenimiento", underline=0, menu=mantenimiento)
         menubar.add_cascade(label="Reportes", underline=0, menu=reportes)
-        menubar.add_cascade(label="Facturacion", underline=0, menu=facturacion)
+        menubar.add_cascade(label="Facturacion", underline=0, command=form_factura)
         menubar.add_cascade(label="Acerca De", underline=0, menu=informacion)
         menubar.add_cascade(label="Contacto", underline=0, command=self.formulario_contacto)
 
@@ -76,7 +77,7 @@ class App(Frame):
 
         self.facturacion = PhotoImage(file="resources/facturacion.png")
         self.btnFacturacion = Button(self.master, image=self.facturacion)
-        self.btnFacturacion.configure(command=lambda: self.popupFacturaciones(self.btnFacturacion))
+        self.btnFacturacion.configure(command=form_factura)
         self.btnFacturacion.place(x=450,y=300)
         Label(text="Facturacion", font=("Arial", 20)).place(x=440, y=440)
 

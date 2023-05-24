@@ -1,0 +1,11 @@
+Factura 20235232314
+Cliente: ('Juan Perez', '12345')
+Mascota: ('Motita', '234')
+Compra:
+Medicamento: Neobol | Cant: 2 | Precio Uni: 3450
+Medicamento: Tabs | Cant: 3 | Precio Uni: 34506
+
+Subtotal: 110418
+Descuento: 1
+Forma pago: 01
+Total: 107105.46
