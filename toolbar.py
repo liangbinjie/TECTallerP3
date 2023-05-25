@@ -4,6 +4,7 @@ from forms_insercion import *
 from forms_eliminar import *
 from forms_modificar import *
 from reportes import *
+
 # variable padre = significa la ventana padre a la que esta asociado
 
 def vMantenimiento(padre):
@@ -31,18 +32,18 @@ def vMantenimiento(padre):
     modificar.add_command(label="Ciudad", command=form_modificarCiudad)
     modificar.add_command(label="Clientes", command=form_modificarCliente)
     modificar.add_command(label="Mascotas", command=form_modificarMascota)
-    modificar.add_command(label="Visitas")
-    modificar.add_command(label="Tratamientos")
-    modificar.add_command(label="Medicacion")
+    modificar.add_command(label="Visitas", command = form_modificarVisita)
+    modificar.add_command(label="Tratamientos", command = form_modificartratamiento)
+    modificar.add_command(label="Medicacion", command = form_modificarmedicacion)
 
     eliminar = Menu(mantenimiento) # definimos el submenu de consulta
     eliminar.add_command(label="Pais", command=form_eliminarPais)
     eliminar.add_command(label="Ciudad", command=form_eliminarCiudad)
     eliminar.add_command(label="Clientes", command=form_eliminarCliente)
     eliminar.add_command(label="Mascotas", command=form_eliminarMascota)
-    eliminar.add_command(label="Visitas")
-    eliminar.add_command(label="Tratamientos")
-    eliminar.add_command(label="Medicacion", command=form_eliminarPais)
+    eliminar.add_command(label="Visitas", command=form_eliminarvisita)
+    eliminar.add_command(label="Tratamientos", command = form_eliminartratamiento)
+    eliminar.add_command(label="Medicacion", command = form_eliminarmedicamento)
 
     mantenimiento.add_cascade(label='Insercion', menu=insercion, underline=0)
     mantenimiento.add_cascade(label='Consulta', menu=consulta, underline=0)
@@ -62,7 +63,11 @@ def vReportes(padre):
     reportes.add_command(label="Cliente con mas saldo", underline=0, command=clienteMasSaldo)
     reportes.add_command(label="Clientes con mas descuento", underline=0, command=clientesMasDescuento)
     reportes.add_command(label="Clientes de credito", underline=0, command=clientesCredito)
-
+    reportes.add_command(label="Visitas de una mascota", underline=0, command = form_reportevisitas)
+    reportes.add_command(label="Todos los tratamientos",underline=0, command = reportetratamientos)
+    reportes.add_command(label="Ultimo tratamiento de una mascota", underline = 0, command = form_ulttratmascota)
+    reportes.add_command(label="tratamientos de una mascota", underline = 0, command = form_tratmascota)
+    reportes.add_command(label="tratamiento mas utilizado", underline = 0, command = tratamientoMasUtilizado)
     return reportes
 
 

@@ -3,6 +3,9 @@ from pais import paisExist
 from cliente import getCliente
 from tkinter import *
 from tkinter import messagebox
+from visitas import LISTA_VISITAS
+from mascota import LISTA_MASCOTAS
+
 
 def getListaPaises():
     reporte = open("reportes/reportePais.txt", "w")
@@ -131,10 +134,92 @@ def tratamientoMasUtilizado():
         if int(medicacion[7]) > mayor:
             mayor = int(medicacion[7])
             medicina = medicacion[5]
-
-    print(f"ID de tratamiento mas utilizado: {medicina}")
     reporte = open("reportes/tratamientoMasUtilizado.txt", "w")
     reporte.write("Tratamiento mas utilizado\n")
     reporte.write(f"ID de tratamiento mas utilizado: {medicina}")
-    print("Reporte generado")
+    messagebox.showinfo("Reporte","Reporte generado")
     
+            
+def reportetratamientos():
+    reporte = open("reportes/Tratamientostotal.txt","w")
+    for tratamiento in LISTA_TRATAMIENTOS:
+       reporte.write(f"{tratamiento}\n")
+
+    messagebox.showinfo("Reporte","Reporte Hecho!")
+
+
+
+
+def mascotaExist(idMascota):
+    encontrado = False
+    for mascota in LISTA_VISITAS:
+        if mascota[1] == idMascota:
+            encontrado = True
+    return encontrado
+
+def mascotaExistmed(idMascota):
+    encontrado = False
+    for mascota in LISTA_MEDICACION:
+        if mascota[0] == idMascota:
+            encontrado = True
+    return encontrado
+
+def form_reportevisitas():
+    t = Toplevel()
+    t.geometry("250x150")
+    t.title("Formulario de reporte")
+    Label(t, text= "Codigo de Mascota").grid(row=0,column = 0)
+    idMascota = Entry(t)
+    idMascota.grid(row=0, column=1)
+    Button(t,text = "Reportar", command = lambda: reportesvisitas(idMascota.get())).grid(row = 1, column = 1)
+
+def reportesvisitas(idanim):
+    if mascotaExist(idanim) == True:
+        reporte = open("reportes/Visitasdeunamascota.txt","w")
+        for visita in LISTA_VISITAS:
+            if visita[1]==idanim:
+                reporte.write(f"{visita}\n")
+    else:
+        messagebox.showerror("Error","La mascota no tiene visitas o no existe")
+
+
+def reportesulttratmascota(idanim):
+    if mascotaExistmed(idanim) == True:
+        reporte = open("reportes/ultimotratamientodeunamascota","w")
+        i = len(LISTA_MEDICACION)-1
+        while i>=0:
+            if LISTA_MEDICACION[i][0] == idanim:
+                reporte.write(f"El ultimo tratamiento del animal codigo {idanim} fue dado: {LISTA_MEDICACION[i]}")
+                return messagebox.showinfo("Reporte", "Reporte realizado!")
+            i=i-1
+    else:    
+        return messagebox.showerror("Error","La mascota no se ha medicado")
+
+def form_ulttratmascota():
+    t = Toplevel()
+    t.geometry("250x150")
+    t.title("Formulario de reporte")
+    Label(t, text= "Codigo de Mascota").grid(row=0,column = 0)
+    idMascota = Entry(t)
+    idMascota.grid(row=0, column=1)
+    Button(t,text = "Reportar", command = lambda: reportesulttratmascota(idMascota.get())).grid(row = 1, column = 1)
+
+def form_tratmascota():
+    t = Toplevel()
+    t.geometry("250x150")
+    t.title("Formulario de reporte")
+    Label(t, text= "Codigo de Mascota").grid(row=0,column = 0)
+    idMascota = Entry(t)
+    idMascota.grid(row=0, column=1)
+    Button(t,text = "Reportar", command = lambda: reportestratmascota(idMascota.get())).grid(row = 1, column = 1)
+
+def reportestratmascota(idanim):
+    if mascotaExistmed(idanim) == True:
+        reporte = open("reportes/tratamientosdeunamascota","w")
+        for med in LISTA_MEDICACION:
+            if med[0] == idanim:
+                reporte.write(f"El animal fue medicado en {med}")
+        return messagebox.showinfo("Reporte", "Reporte realizado!")
+    else:    
+        return messagebox.showerror("Error","La mascota no se ha medicado")
+

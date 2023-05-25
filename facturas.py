@@ -104,10 +104,11 @@ def facturar(nF, idCliente, idMascota, productos, subtotal, descuento, formaPago
                 #     return 0
                 # else:
                 #     trat[1] = str(nueva_cant)
-    
     print(f"Factura {nF}\nCliente: {nombreC, idCliente}\nMascota: {nombreM, idMascota}\nCompra:\n{compra}\nSubtotal: {subO}\nDescuento: {descuento}\nForma pago: {formaPago}\nTotal: {subtotal}")
     with open(f"facturas/{nF}.txt", "w") as f:
         f.write(f"Factura {nF}\nCliente: {nombreC, idCliente}\nMascota: {nombreM, idMascota}\nCompra:\n{compra}\nSubtotal: {subO}\nDescuento: {descuento}\nForma pago: {formaPago}\nTotal: {subtotal}")
+
+
 
 
 

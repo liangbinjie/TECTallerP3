@@ -1,0 +1,9 @@
+Factura 20235251550
+Cliente: ('Juan Perez', '12345')
+Mascota: ('Nana', '23')
+Compra:
+
+Subtotal: 0
+Descuento: 1
+Forma pago: 01
+Total: 0.0

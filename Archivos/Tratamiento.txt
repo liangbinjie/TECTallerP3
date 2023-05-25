@@ -1,2 +1,6 @@
 980;Neobol;3450
 90;Tabs;34506
+123;Galletas;12313
+323;ComidaPez;3213
+933;Pastillas;12332
+532;desparasitante;32312

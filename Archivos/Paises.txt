@@ -1,3 +1,10 @@
 12;Costa Rica
 23;Estados Unidos
 45;Panama
+54;Colombia
+93;Espana
+87;Andorra
+966;India
+982;Corea
+342;Tailandia
+73;Mexico
